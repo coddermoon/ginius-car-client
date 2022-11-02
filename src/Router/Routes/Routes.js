@@ -1,4 +1,5 @@
 import Main from "../../Layout/Main";
+import Checkout from "../../Pages/Checkout/Checkout";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import SignUp from "../../Pages/SignUp/SignUp";
@@ -22,6 +23,11 @@ const router = createBrowserRouter([
           path: '/signup', 
           element: <SignUp></SignUp>
         },
+        {
+          path: '/checkout/:id',
+          loader:({params})=> fetch(`https://ginious-server.vercel.app/services/${params.id}`),
+          element: <Checkout/>
+        }
       ]
     }
   ]);
